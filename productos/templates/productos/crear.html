@@ -1,0 +1,28 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear producto</title>
+    <link rel="stylesheet" href="{% static 'productos/style.css' %}">
+</head>
+<body>
+    <main class="container">
+        <h1>Crear producto</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formulario.as_p }}
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Guardar producto</button>
+                <a href="{% url 'listar_productos' %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
